@@ -1,5 +1,7 @@
 ScriptName MiAutoUseSpellTomeScript Extends ReferenceAlias
 
+Import PO3_SKSEFunctions
+
 Event OnInit()
 	RegisterForSingleUpdate(1)
 EndEvent
@@ -25,6 +27,7 @@ State Ready
 			actorRef.RemoveItem(akBaseItem, 1, true)
 			UISpellLearnedSound.Play(actorRef)
 			Debug.Notification("New Spell Learned: " + bookSpell.GetName())
+			PO3_SKSEFunctions.SetReadFlag(bookRef)
 		EndIf
 	EndEvent
 EndState
